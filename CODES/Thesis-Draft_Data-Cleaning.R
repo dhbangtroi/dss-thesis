@@ -12,7 +12,7 @@ library(stringr)
 library(DT)
 
 # Import raw data
-base_path <- "E:\\THIENDHB_GOOGLEDRIVE\\MASTER TILBURG\\THESIS\\DATASET\\JOB CLUSTERING"
+base_path <- "E:\\THIENDHB_GOOGLEDRIVE\\MASTER TILBURG\\THESIS\\DATASET"
 df <- read.csv(file.path(base_path, "online-job-postings.csv"))
 df <- df %>% mutate(job_id = 1:n())
 refined_df <- df

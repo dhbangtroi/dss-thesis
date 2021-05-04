@@ -46,7 +46,7 @@ library(ggplot2)
 ########################
 
 base_path <- "E:\\THIENDHB_GOOGLEDRIVE\\MASTER TILBURG\\THESIS\\DATASET\\INPUT"
-df <- read.csv(file.path(base_path, "online-job-postings.csv"))
+df <- read.csv(file.path(base_path, "online-job-postings.csv"), stringsAsFactors = F)
 df <- df %>% mutate(job_id = 1:n())
 refined_df <- df
 
@@ -176,6 +176,9 @@ refined_df <- refined_df %>%
 ########################
 # Visualizing after-retrieval missing data
 ########################
+
+# Detect and convert all considered "missing" values to NA
+refined_df[detect_na(refined_df)] <- NA
 
 vis_miss(refined_df[c('Title', 'JobDescription', 'JobRequirment', 'RequiredQual')]) +
   labs(title = "Row-wise missingness of Retrieval Online Job Posts data")

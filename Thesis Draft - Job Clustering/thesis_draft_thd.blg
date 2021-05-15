@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2020/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis_draft_thd.aux
+The style file: apacite.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: Cited.bib
+apacite.bst [2013/07/21 v6.03 APA bibliography style]
+Warning--No journal in liuEvaluationFeatureSelection2003
+You've used 30 entries,
+            6951 wiz_defined-function locations,
+            1497 strings with 18936 characters,
+and the built_in function-call counts, 62518 in all, are:
+= -- 7705
+> -- 610
+< -- 2891
++ -- 2888
+- -- 62
+* -- 4014
+:= -- 10884
+add.period$ -- 138
+call.type$ -- 30
+change.case$ -- 539
+chr.to.int$ -- 0
+cite$ -- 61
+duplicate$ -- 1773
+empty$ -- 2470
+format.name$ -- 1013
+if$ -- 11979
+int.to.chr$ -- 0
+int.to.str$ -- 90
+missing$ -- 0
+newline$ -- 842
+num.names$ -- 240
+pop$ -- 1163
+preamble$ -- 1
+purify$ -- 140
+quote$ -- 0
+skip$ -- 4096
+stack$ -- 0
+substring$ -- 3154
+swap$ -- 1090
+text.length$ -- 121
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 3040
+warning$ -- 1
+while$ -- 380
+width$ -- 0
+write$ -- 1102
+(There was 1 warning)

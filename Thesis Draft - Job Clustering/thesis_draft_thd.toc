@@ -1,0 +1,28 @@
+\babel@toc {english}{}
+\contentsline {section}{Introduction}{3}%
+\contentsline {section}{Related work}{5}%
+\contentsline {subsection}{Dimensionality reduction}{6}%
+\contentsline {subsubsection}{Feature selection}{6}%
+\contentsline {subsubsection}{Feature extraction}{7}%
+\contentsline {subsection}{Clustering approaches}{8}%
+\contentsline {subsubsection}{Semi-supervised learning}{8}%
+\contentsline {subsubsection}{Unsupervised learning}{9}%
+\contentsline {section}{Methods}{10}%
+\contentsline {subsection}{Dimensionality reduction}{10}%
+\contentsline {subsection}{Clustering}{11}%
+\contentsline {subsubsection}{k-means}{11}%
+\contentsline {subsubsection}{Genie}{11}%
+\contentsline {subsubsection}{HDBSCAN}{12}%
+\contentsline {subsubsection}{LDA}{14}%
+\contentsline {subsubsection}{GSDMM}{14}%
+\contentsline {section}{Experiment Setup}{15}%
+\contentsline {subsection}{Dataset}{15}%
+\contentsline {subsection}{Missing value treatment}{16}%
+\contentsline {subsection}{Text pre-processing}{18}%
+\contentsline {subsection}{Feature selection and feature extraction}{19}%
+\contentsline {subsection}{Implementation and evaluation}{19}%
+\contentsline {section}{Results}{19}%
+\contentsline {section}{Discussion}{19}%
+\contentsline {section}{Conclusion}{19}%
+\contentsline {section}{Acknowledgements}{19}%
+\contentsline {section}{References}{20}%

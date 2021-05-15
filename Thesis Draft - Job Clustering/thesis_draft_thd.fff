@@ -1,0 +1,8 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[h]
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[width=14cm]{kmeans-mechanism}
+    \caption{k-means clustering algorithm}\label{fig:kmeans}
+\end{figure*}

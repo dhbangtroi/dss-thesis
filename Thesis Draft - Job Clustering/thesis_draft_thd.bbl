@@ -1,0 +1,934 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Alelyani%
+, Tang%
+\BCBL {}\ \BBA {} Liu%
+}{%
+Alelyani%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+alelyaniFeatureSelectionClustering2013}
+\APACinsertmetastar {%
+alelyaniFeatureSelectionClustering2013}%
+\begin{APACrefauthors}%
+Alelyani, S.%
+, Tang, J.%
+\BCBL {}\ \BBA {} Liu, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Feature Selection for Clustering: {{A Review}}} {Feature
+  selection for clustering: {{A Review}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Data clustering: algorithms and
+  applications}{29}{110-121}{144}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Blei%
+, Ng%
+\BCBL {}\ \BBA {} Jordan%
+}{%
+Blei%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2003}}%
+}]{%
+blei2003latent}
+\APACinsertmetastar {%
+blei2003latent}%
+\begin{APACrefauthors}%
+Blei, D\BPBI M.%
+, Ng, A\BPBI Y.%
+\BCBL {}\ \BBA {} Jordan, M\BPBI I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2003}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Latent dirichlet allocation} {Latent dirichlet
+  allocation}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{the Journal of machine Learning
+  research}{3}{}{993--1022}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Boselli%
+, Cesarini%
+, Mercorio%
+\BCBL {}\ \BBA {} Mezzanzanica%
+}{%
+Boselli%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+boselliClassifyingOnlineJob2018}
+\APACinsertmetastar {%
+boselliClassifyingOnlineJob2018}%
+\begin{APACrefauthors}%
+Boselli, R.%
+, Cesarini, M.%
+, Mercorio, F.%
+\BCBL {}\ \BBA {} Mezzanzanica, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Classifying Online {{Job Advertisements}} through
+  {{Machine Learning}}} {Classifying online {{Job Advertisements}} through
+  {{Machine Learning}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Future Generation Computer Systems}{86}{}{319--328}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.future.2018.03.035} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Breiman%
+}{%
+Breiman%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+breimanRandomForests2001}
+\APACinsertmetastar {%
+breimanRandomForests2001}%
+\begin{APACrefauthors}%
+Breiman, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Random Forests} {Random forests}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Machine learning}{45}{1}{5--32}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Calanca%
+, Sayfullina%
+, Minkus%
+, Wagner%
+\BCBL {}\ \BBA {} Malmi%
+}{%
+Calanca%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+calancaResponsibleTeamPlayers2019}
+\APACinsertmetastar {%
+calancaResponsibleTeamPlayers2019}%
+\begin{APACrefauthors}%
+Calanca, F.%
+, Sayfullina, L.%
+, Minkus, L.%
+, Wagner, C.%
+\BCBL {}\ \BBA {} Malmi, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Responsible Team Players Wanted: An Analysis of Soft
+  Skill Requirements in Job Advertisements} {Responsible team players wanted:
+  An analysis of soft skill requirements in job advertisements}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{EPJ Data Science}{8}{1}{13}.
+\newblock
+\begin{APACrefDOI} \doi{10.1140/epjds/s13688-019-0190-z} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Campello%
+, Moulavi%
+\BCBL {}\ \BBA {} Sander%
+}{%
+Campello%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+campelloDensitybasedClusteringBased2013}
+\APACinsertmetastar {%
+campelloDensitybasedClusteringBased2013}%
+\begin{APACrefauthors}%
+Campello, R\BPBI J.%
+, Moulavi, D.%
+\BCBL {}\ \BBA {} Sander, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Density-Based Clustering Based on Hierarchical Density
+  Estimates} {Density-based clustering based on hierarchical density
+  estimates}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Pacific-{{Asia}} Conference on Knowledge Discovery and
+  Data Mining} {Pacific-{{Asia}} conference on knowledge discovery and data
+  mining}\ (\BPGS\ 160--172).
+\newblock
+\APACaddressPublisher{}{{Springer}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Dave%
+, Zhang%
+, Al~Hasan%
+, AlJadda%
+\BCBL {}\ \BBA {} Korayem%
+}{%
+Dave%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+daveCombinedRepresentationLearning2018}
+\APACinsertmetastar {%
+daveCombinedRepresentationLearning2018}%
+\begin{APACrefauthors}%
+Dave, V\BPBI S.%
+, Zhang, B.%
+, Al~Hasan, M.%
+, AlJadda, K.%
+\BCBL {}\ \BBA {} Korayem, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A {{Combined Representation Learning Approach}} for
+  {{Better Job}} and {{Skill Recommendation}}} {A {{Combined Representation
+  Learning Approach}} for {{Better Job}} and {{Skill Recommendation}}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 27th {{ACM International Conference}}
+  on {{Information}} and {{Knowledge Management}}} {Proceedings of the 27th
+  {{ACM International Conference}} on {{Information}} and {{Knowledge
+  Management}}}\ (\BPGS\ 1997--2005).
+\newblock
+\APACaddressPublisher{{Torino Italy}}{{ACM}}.
+\newblock
+\begin{APACrefDOI} \doi{10.1145/3269206.3272023} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+De~Mauro%
+, Greco%
+, Grimaldi%
+\BCBL {}\ \BBA {} Ritala%
+}{%
+De~Mauro%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+demauroHumanResourcesBig2018}
+\APACinsertmetastar {%
+demauroHumanResourcesBig2018}%
+\begin{APACrefauthors}%
+De~Mauro, A.%
+, Greco, M.%
+, Grimaldi, M.%
+\BCBL {}\ \BBA {} Ritala, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Human Resources for {{Big Data}} Professions: {{A}}
+  Systematic Classification of Job Roles and Required Skill Sets} {Human
+  resources for {{Big Data}} professions: {{A}} systematic classification of
+  job roles and required skill sets}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Information Processing \& Management}{54}{5}{807--817}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.ipm.2017.05.004} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Djumalieva%
+, Lima%
+\BCBL {}\ \BBA {} Sleeman%
+}{%
+Djumalieva%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+djumalievaClassifyingOccupationsAccording2018}
+\APACinsertmetastar {%
+djumalievaClassifyingOccupationsAccording2018}%
+\begin{APACrefauthors}%
+Djumalieva, J.%
+, Lima, A.%
+\BCBL {}\ \BBA {} Sleeman, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Classifying Occupations According to Their Skill
+  Requirements in Job Advertisements} {Classifying occupations according to
+  their skill requirements in job advertisements}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Economic Statistics Centre of Excellence Discussion
+  Paper}{4}{}{2018}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Elghazel%
+\ \BBA {} Aussem%
+}{%
+Elghazel%
+\ \BBA {} Aussem%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+elghazelUnsupervisedFeatureSelection2015}
+\APACinsertmetastar {%
+elghazelUnsupervisedFeatureSelection2015}%
+\begin{APACrefauthors}%
+Elghazel, H.%
+\BCBT {}\ \BBA {} Aussem, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{01}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Unsupervised Feature Selection with Ensemble Learning}
+  {Unsupervised feature selection with ensemble learning}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Machine Learning}{98}{1}{157--180}.
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s10994-013-5337-8} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gagolewski%
+, Bartoszuk%
+\BCBL {}\ \BBA {} Cena%
+}{%
+Gagolewski%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+gagolewskiGenieNewFast2016a}
+\APACinsertmetastar {%
+gagolewskiGenieNewFast2016a}%
+\begin{APACrefauthors}%
+Gagolewski, M.%
+, Bartoszuk, M.%
+\BCBL {}\ \BBA {} Cena, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{10}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Genie: {{A}} New, Fast, and Outlier-Resistant
+  Hierarchical~Clustering~Algorithm} {Genie: {{A}} new, fast, and
+  outlier-resistant hierarchical~clustering~algorithm}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Information Sciences}{363}{}{8--23}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.ins.2016.05.003} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Grira%
+, Crucianu%
+\BCBL {}\ \BBA {} Boujemaa%
+}{%
+Grira%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2005}}%
+}]{%
+griraUnsupervisedSemisupervisedClustering2005}
+\APACinsertmetastar {%
+griraUnsupervisedSemisupervisedClustering2005}%
+\begin{APACrefauthors}%
+Grira, N.%
+, Crucianu, M.%
+\BCBL {}\ \BBA {} Boujemaa, N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Unsupervised and {{Semi}}-Supervised {{Clustering}}: A
+  {{Brief Survey}}} {Unsupervised and {{Semi}}-supervised {{Clustering}}: A
+  {{Brief Survey}}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {In `{{A Review}} of {{Machine Learning Techniques}} for
+  {{Processing Multimedia Content}}', {{Report}} of the {{MUSCLE European
+  Network}} of {{Excellence}} ({{FP6}}.} {In `{{A Review}} of {{Machine
+  Learning Techniques}} for {{Processing Multimedia Content}}', {{Report}} of
+  the {{MUSCLE European Network}} of {{Excellence}} ({{FP6}}.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Han%
+\ \BBA {} Kamber%
+}{%
+Han%
+\ \BBA {} Kamber%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+hanDataMiningConcepts2012}
+\APACinsertmetastar {%
+hanDataMiningConcepts2012}%
+\begin{APACrefauthors}%
+Han, J.%
+\BCBT {}\ \BBA {} Kamber, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2012}.
+\newblock
+\APACrefbtitle {Data Mining: Concepts and Techniques} {Data mining: Concepts
+  and techniques}\ (\PrintOrdinal{3rd ed}\ \BEd).
+\newblock
+\APACaddressPublisher{{Burlington, MA}}{{Elsevier}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+H.~Liu%
+\ \BBA {} Yu%
+}{%
+H.~Liu%
+\ \BBA {} Yu%
+}{%
+{\protect \APACyear {2005}}%
+}]{%
+liuIntegratingFeatureSelection2005}
+\APACinsertmetastar {%
+liuIntegratingFeatureSelection2005}%
+\begin{APACrefauthors}%
+Liu, H.%
+\BCBT {}\ \BBA {} Yu, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Toward Integrating Feature Selection Algorithms for
+  Classification and Clustering} {Toward integrating feature selection
+  algorithms for classification and clustering}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{IEEE Transactions on knowledge and data
+  engineering}{17}{4}{491--502}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+L.~Liu%
+, Kang%
+, Yu%
+\BCBL {}\ \BBA {} Wang%
+}{%
+L.~Liu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2005}}%
+}]{%
+liuComparativeStudyUnsupervised2005}
+\APACinsertmetastar {%
+liuComparativeStudyUnsupervised2005}%
+\begin{APACrefauthors}%
+Liu, L.%
+, Kang, J.%
+, Yu, J.%
+\BCBL {}\ \BBA {} Wang, Z.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{{\APACmonth{10}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Comparative Study on Unsupervised Feature Selection
+  Methods for Text Clustering} {A comparative study on unsupervised feature
+  selection methods for text clustering}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2005 {{International Conference}} on {{Natural Language
+  Processing}} and {{Knowledge Engineering}}} {2005 {{International
+  Conference}} on {{Natural Language Processing}} and {{Knowledge
+  Engineering}}}\ (\BPGS\ 597--601).
+\newblock
+\begin{APACrefDOI} \doi{10.1109/NLPKE.2005.1598807} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+T.~Liu%
+, Liu%
+, Chen%
+\BCBL {}\ \BBA {} Ma%
+}{%
+T.~Liu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2003}}%
+}]{%
+liuEvaluationFeatureSelection2003}
+\APACinsertmetastar {%
+liuEvaluationFeatureSelection2003}%
+\begin{APACrefauthors}%
+Liu, T.%
+, Liu, S.%
+, Chen, Z.%
+\BCBL {}\ \BBA {} Ma, W\BHBI Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2003}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {An {{Evaluation}} on {{Feature Selection}} for {{Text
+  Clustering}}} {An {{Evaluation}} on {{Feature Selection}} for {{Text
+  Clustering}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{}{}{}{8}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lu%
+, Wu%
+, Mao%
+, Wang%
+\BCBL {}\ \BBA {} Zhang%
+}{%
+Lu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+luRecommenderSystemApplication2015}
+\APACinsertmetastar {%
+luRecommenderSystemApplication2015}%
+\begin{APACrefauthors}%
+Lu, J.%
+, Wu, D.%
+, Mao, M.%
+, Wang, W.%
+\BCBL {}\ \BBA {} Zhang, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{06}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Recommender System Application Developments: {{A}}
+  Survey} {Recommender system application developments: {{A}} survey}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Decision Support Systems}{74}{}{12--32}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.dss.2015.03.008} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mhamdi%
+, Moulouki%
+, El~Ghoumari%
+, Azzouazi%
+\BCBL {}\ \BBA {} Moussaid%
+}{%
+Mhamdi%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+mhamdiJobRecommendationBased2020}
+\APACinsertmetastar {%
+mhamdiJobRecommendationBased2020}%
+\begin{APACrefauthors}%
+Mhamdi, D.%
+, Moulouki, R.%
+, El~Ghoumari, M.%
+, Azzouazi, M.%
+\BCBL {}\ \BBA {} Moussaid, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Job {{Recommendation}} Based on {{Job Profile
+  Clustering}} and {{Job Seeker Behavior}}} {Job {{Recommendation}} based on
+  {{Job Profile Clustering}} and {{Job Seeker Behavior}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Procedia Computer Science}{175}{}{695--699}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.procs.2020.07.102} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Poch%
+, Bel~Rafecas%
+, Espeja%
+\BCBL {}\ \BBA {} Navio%
+}{%
+Poch%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+pochRankingJobOffers2014}
+\APACinsertmetastar {%
+pochRankingJobOffers2014}%
+\begin{APACrefauthors}%
+Poch, M.%
+, Bel~Rafecas, N.%
+, Espeja, S.%
+\BCBL {}\ \BBA {} Navio, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Ranking Job Offers for Candidates: Learning Hidden
+  Knowledge from Big Data} {Ranking job offers for candidates: Learning hidden
+  knowledge from big data}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {In: {{Calzolari N}}, {{Choukri K}}, {{Declerck T}},
+  {{Loftsson H}}, {{Maegaard B}}, {{Mariani J}}, {{Moreno A}}, {{Odijk J}},
+  {{Piperidis S}}, Editors. {{Proceedings}} of the {{Ninth International
+  Conference}} on {{Language Resources}} and {{Evaluation}} ({{LREC}}-2014);
+  2014 {{May}} 26-31; {{Reykjavik}}, {{Iceland}}. {{Paris}}: {{European
+  Language Resources Association}}; 2014. p. 2076-82.} {In: {{Calzolari N}},
+  {{Choukri K}}, {{Declerck T}}, {{Loftsson H}}, {{Maegaard B}}, {{Mariani J}},
+  {{Moreno A}}, {{Odijk J}}, {{Piperidis S}}, editors. {{Proceedings}} of the
+  {{Ninth International Conference}} on {{Language Resources}} and
+  {{Evaluation}} ({{LREC}}-2014); 2014 {{May}} 26-31; {{Reykjavik}},
+  {{Iceland}}. {{Paris}}: {{European Language Resources Association}}; 2014. p.
+  2076-82.}
+\newblock
+\APACaddressPublisher{}{{ACL (Association for Computational Linguistics)}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Qiang%
+, Qian%
+, Li%
+, Yuan%
+\BCBL {}\ \BBA {} Wu%
+}{%
+Qiang%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+qiangShortTextTopic2020}
+\APACinsertmetastar {%
+qiangShortTextTopic2020}%
+\begin{APACrefauthors}%
+Qiang, J.%
+, Qian, Z.%
+, Li, Y.%
+, Yuan, Y.%
+\BCBL {}\ \BBA {} Wu, X.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Short {{Text Topic Modeling Techniques}},
+  {{Applications}}, and {{Performance}}: {{A Survey}}} {Short {{Text Topic
+  Modeling Techniques}}, {{Applications}}, and {{Performance}}: {{A
+  Survey}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{IEEE Transactions on Knowledge and Data
+  Engineering}{}{}{1--1}.
+\newblock
+\begin{APACrefDOI} \doi{10.1109/TKDE.2020.2992485} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Qin%
+, Ding%
+, Wang%
+\BCBL {}\ \BBA {} Wang%
+}{%
+Qin%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+qinResearchProgressSemiSupervised2019}
+\APACinsertmetastar {%
+qinResearchProgressSemiSupervised2019}%
+\begin{APACrefauthors}%
+Qin, Y.%
+, Ding, S.%
+, Wang, L.%
+\BCBL {}\ \BBA {} Wang, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{{\APACmonth{10}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Research {{Progress}} on {{Semi}}-{{Supervised
+  Clustering}}} {Research {{Progress}} on {{Semi}}-{{Supervised
+  Clustering}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognitive Computation}{11}{5}{599--612}.
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s12559-019-09664-w} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Raunak%
+, Gupta%
+\BCBL {}\ \BBA {} Metze%
+}{%
+Raunak%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+raunakEffectiveDimensionalityReduction2019}
+\APACinsertmetastar {%
+raunakEffectiveDimensionalityReduction2019}%
+\begin{APACrefauthors}%
+Raunak, V.%
+, Gupta, V.%
+\BCBL {}\ \BBA {} Metze, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{{\APACmonth{08}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Effective {{Dimensionality Reduction}} for {{Word
+  Embeddings}}} {Effective {{Dimensionality Reduction}} for {{Word
+  Embeddings}}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 4th {{Workshop}} on {{Representation
+  Learning}} for {{NLP}} ({{RepL4NLP}}-2019)} {Proceedings of the 4th
+  {{Workshop}} on {{Representation Learning}} for {{NLP}} ({{RepL4NLP}}-2019)}\
+  (\BPGS\ 235--243).
+\newblock
+\APACaddressPublisher{{Florence, Italy}}{{Association for Computational
+  Linguistics}}.
+\newblock
+\begin{APACrefDOI} \doi{10.18653/v1/W19-4328} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Reddy%
+, Viswanath%
+\BCBL {}\ \BBA {} Reddy%
+}{%
+Reddy%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+reddySemisupervisedLearningBrief2018}
+\APACinsertmetastar {%
+reddySemisupervisedLearningBrief2018}%
+\begin{APACrefauthors}%
+Reddy, Y\BPBI C\BPBI A\BPBI P.%
+, Viswanath, P.%
+\BCBL {}\ \BBA {} Reddy, B\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{{\APACmonth{02}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Semi-Supervised Learning: A Brief Review}
+  {Semi-supervised learning: A brief review}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Journal of Engineering \&
+  Technology}{7}{1.8}{81--85}.
+\newblock
+\begin{APACrefDOI} \doi{10.14419/ijet.v7i1.8.9977} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Shi%
+\ \BBA {} Horvath%
+}{%
+Shi%
+\ \BBA {} Horvath%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+shiUnsupervisedLearningRandom2006}
+\APACinsertmetastar {%
+shiUnsupervisedLearningRandom2006}%
+\begin{APACrefauthors}%
+Shi, T.%
+\BCBT {}\ \BBA {} Horvath, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Unsupervised Learning with Random Forest Predictors}
+  {Unsupervised learning with random forest predictors}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Computational and Graphical
+  Statistics}{15}{1}{118--138}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Smith%
+}{%
+Smith%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+smithSearchingWorkDigital2015}
+\APACinsertmetastar {%
+smithSearchingWorkDigital2015}%
+\begin{APACrefauthors}%
+Smith, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Searching for Work in the Digital Era} {Searching for
+  work in the digital era}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Pew Research Center}{19}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Sun%
+}{%
+Sun%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+sunTextualDocumentClustering2014}
+\APACinsertmetastar {%
+sunTextualDocumentClustering2014}%
+\begin{APACrefauthors}%
+Sun, X.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{{\APACmonth{08}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Textual {{Document Clustering Using Topic Models}}}
+  {Textual {{Document Clustering Using Topic Models}}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2014 10th {{International Conference}} on {{Semantics}},
+  {{Knowledge}} and {{Grids}}} {2014 10th {{International Conference}} on
+  {{Semantics}}, {{Knowledge}} and {{Grids}}}\ (\BPGS\ 1--4).
+\newblock
+\APACaddressPublisher{{Beijing, China}}{{IEEE}}.
+\newblock
+\begin{APACrefDOI} \doi{10.1109/SKG.2014.27} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Suyal%
+, Panwar%
+\BCBL {}\ \BBA {} Singh~Negi%
+}{%
+Suyal%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+suyalTextClusteringAlgorithms2014}
+\APACinsertmetastar {%
+suyalTextClusteringAlgorithms2014}%
+\begin{APACrefauthors}%
+Suyal, H.%
+, Panwar, A.%
+\BCBL {}\ \BBA {} Singh~Negi, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{{\APACmonth{06}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Text {{Clustering Algorithms}}: {{A Review}}} {Text
+  {{Clustering Algorithms}}: {{A Review}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Journal of Computer
+  Applications}{96}{24}{36--40}.
+\newblock
+\begin{APACrefDOI} \doi{10.5120/16946-7075} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Vinel%
+, Ryazanov%
+, Botov%
+\BCBL {}\ \BBA {} Nikolaev%
+}{%
+Vinel%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+vinelExperimentalComparisonUnsupervised2019}
+\APACinsertmetastar {%
+vinelExperimentalComparisonUnsupervised2019}%
+\begin{APACrefauthors}%
+Vinel, M.%
+, Ryazanov, I.%
+, Botov, D.%
+\BCBL {}\ \BBA {} Nikolaev, I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Experimental Comparison of Unsupervised Approaches in
+  the Task of Separating Specializations within Professions in Job Vacancies}
+  {Experimental comparison of unsupervised approaches in the task of separating
+  specializations within professions in job vacancies}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Conference on {{Artificial Intelligence}} and {{Natural
+  Language}}} {Conference on {{Artificial Intelligence}} and {{Natural
+  Language}}}\ (\BPGS\ 99--112).
+\newblock
+\APACaddressPublisher{}{{Springer}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{World Economic Forum}%
+}{%
+{World Economic Forum}%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+worldeconomicforumFutureJobsReport2020}
+\APACinsertmetastar {%
+worldeconomicforumFutureJobsReport2020}%
+\begin{APACrefauthors}%
+{World Economic Forum}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The {{Future}} of {{Jobs Report}} 2020} {The {{Future}}
+  of {{Jobs Report}} 2020}.{\BBCQ}
+\newblock
+\APACaddressPublisher{}{{World Economic Forum, Geneva, Switzerland}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Yin%
+\ \BBA {} Wang%
+}{%
+Yin%
+\ \BBA {} Wang%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+yinDirichletMultinomialMixture2014}
+\APACinsertmetastar {%
+yinDirichletMultinomialMixture2014}%
+\begin{APACrefauthors}%
+Yin, J.%
+\BCBT {}\ \BBA {} Wang, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{{\APACmonth{08}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Dirichlet Multinomial Mixture Model-Based Approach for
+  Short Text Clustering} {A dirichlet multinomial mixture model-based approach
+  for short text clustering}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 20th {{ACM SIGKDD}} International
+  Conference on {{Knowledge}} Discovery and Data Mining} {Proceedings of the
+  20th {{ACM SIGKDD}} international conference on {{Knowledge}} discovery and
+  data mining}\ (\BPGS\ 233--242).
+\newblock
+\APACaddressPublisher{{New York New York USA}}{{ACM}}.
+\newblock
+\begin{APACrefDOI} \doi{10.1145/2623330.2623715} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

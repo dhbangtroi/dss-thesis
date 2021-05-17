@@ -4,7 +4,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{graphicx}
-\usepackage[acronym,nopostdot,nonumberlist]{glossaries}
+\usepackage[acronym,nopostdot,nonumberlist,toc]{glossaries}
 
 \setlength\parindent{1.27cm}
 
@@ -25,6 +25,9 @@
 \newacronym{disco}{DISCO}{European Dictionary of Skills and Competences}
 \newacronym{lda}{LDA}{Latent Dirichlet Allocation}
 \newacronym{gsdmm}{GSDMM}{Gibbs Sampling Dirichlet Mixture Model}
+\newacronym{rake}{RAKE}{Rapid Automatic Keyword Extraction}
+\newacronym{yake}{YAKE!}{Yet Another Keyword Extractor}
+\newacronym{ppa}{PPA}{Post-Processing Algorithm}
 
 \makeatletter
 \renewcommand{\section}{\@startsection {section}{1}
@@ -91,15 +94,34 @@
     \end{center}
 \end{titlepage}
 
+\pagenumbering{roman}
 \tableofcontents
 
-\clearpage
+\newpage
 
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+
+\newpage
+
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+
+\newpage
+
+\setglossarystyle{altlist}
+\printglossary[type=\acronymtype, title=List of Acronyms, toctitle=List of Acronyms]
+
+\newpage
+
+% Optional parameters to fine tune the placement of tables and figures:
+% h, here
+% t, top
+% b, bottom
+% p, page of float
+
+\pagenumbering{arabic}
 \setcounter{page}{1}
-
-\printglossary[type=\acronymtype,style=altlist,title=List of Acronyms]
-
-\clearpage
 
 \section{Introduction}
 
@@ -144,13 +166,15 @@ The task of reducing dimensions can be done by feature selection (selecting a sm
 
 As categorized by \cite{liuIntegratingFeatureSelection2005}, features can be selected via ranking or subsetting. For rank-based feature selection techniques, the features are ranked based on their importance then only the ones with highest ranks are kept. Meanwhile, minimum subset algorithms seek to find out the subset of as least features as possible. Feature subset selection may not be preferred in dealing with large dataset because it can be time consuming in order to search for the minimum subset of features \citep{alelyaniFeatureSelectionClustering2013}. Therefore, feature ranking techniques seem to be more popular in text clustering. Among rank-based feature selection methods, the common ones are \gls{tfidf} reviewed by \cite{liuComparativeStudyUnsupervised2005}, \gls{tc} introduced by \cite{liuEvaluationFeatureSelection2003}, and \gls{tv} proposed by \cite{liuComparativeStudyUnsupervised2005}. As expressed in their names, those methods focus on sorting terms based on a pre-defined formula and only top terms are selected as input to machine learning models.
 
+Furthermore, keyword extraction is also a common approach applied in text-related tasks to reduce the number of words to handle. Different with term-based methods mentioned above, keyword extraction methods return not only single terms but also phrases. Among the variety of keyword extraction techniques, TextRank \citep{mihalceaTextrankBringingOrder2004}, PositionRank \citep{florescuPositionrankUnsupervisedApproach2017}, \gls{rake} \citep{roseAutomaticKeywordExtraction2010}, or \gls{yake} \citep{camposYAKEKeywordExtraction2020} are the state-of-the-art ones. Based on several criteria such as word frequency, word length, or word co-occurence, each word is scored by the algorithm and the returned output is a list of words or phrases with the highest scores, which is called keywords or keyphrases. This approach is useful for automated tasks such as text summarizing, tagging, or recommender building. However, when handling large text documents, one may notice that TextRank and PositionRank are rather low in computing keywords' scores, which may influence the whole process, especially under the circumstances of time constraint.
+
 \subsubsection{Feature extraction} 
 
 In spite of the reputation of the mentioned term-related techniques, they may fail in the tasks that require to analyze the semantic of words. Hence, the feature extraction algorithms attempt to generate text embeddings, which are the numerical representation of the text as well as its semantic properties. In the embedding space, similar words will have similar representation and therefore stay close to each other, and vice versa. In the experiment of job clustering comparing \gls{tfidf} and word embeddings, \cite{vinelExperimentalComparisonUnsupervised2019} found that the cluster models performed better with word embeddings. \cite{calancaResponsibleTeamPlayers2019}, and \cite{mhamdiJobRecommendationBased2020} also applied word embeddings in their research of job recommendation. 
 
 However, word embeddings, the smallest unit representing words in the embedding space, usually are numerical vectors with length between 100 and 300, or 768 in some special models. That leads to challenges of memory capacity, especially with the document sets containing a variety of unique words \citep{raunakEffectiveDimensionalityReduction2019}. For that reason, researchers tend to combine word embeddings with other feature extraction methods such as \gls{pca} to reduce the dimensions of word embeddings. \gls{pca} is widely used not only because of its simplicity but also its fast computation. \cite{raunakEffectiveDimensionalityReduction2019} also proposed using \gls{pca} together with post-processing algorithms on the word embedding to both shrink the embedding size to half and improve the quality of the reduced embedding.
 
-One other method that deserves mentioning is \gls{urf} although it has not been widely researched. The introduction of \gls{urf} came from the idea that adding a set of "synthetic" data into the "original" data, one can train the supervised \gls{rf} as normal because the problem now is turned to binary classification between "synthetic" and "original" \citep[as cited in \citealp{shiUnsupervisedLearningRandom2006}]{breimanRandomForests2001}. \cite{elghazelUnsupervisedFeatureSelection2015} commented in their paper that \gls{urf} can handle missing variables, detect outliers, and most importantly, the variable importance obtained from \gls{urf} can be used in selecting features.
+One other method that deserves mentioning is \gls{urf} although it has not been widely researched. The introduction of \gls{urf} came from the idea that adding a set of "synthetic" data into the "original" data, one can train the supervised \gls{rf} as normal because the problem now is turned to binary classification between "synthetic" and "original" \citep{breimanManualSettingUsing2002}. \cite{elghazelUnsupervisedFeatureSelection2015} commented in their paper that \gls{urf} can handle missing variables, detect outliers, and most importantly, the variable importance obtained from \gls{urf} can be used in selecting features.
 
 Researches on job clustering in general and skill set recommendation in particular are very limited in the literature, especially in term of feature selection. Most of papers only stated that job titles, job descriptions, or the whole job ads are input to their models. Meanwhile, the job postings have other sections such as job requirements, qualification required, which are all have potentiality to become features for skill set clustering. Thus, this thesis, through obtaining \gls{urf}'s variable importance, attempts to figure out which sections are useful information for clustering models.
 
@@ -174,11 +198,40 @@ Although there have been several papers seeking to conduct job clustering, a com
 
 \section{Methods}
 
-In this section, each of dimensionality reduction techniques used in this research is described, namely: [Will be added later after finalizing and wrapping up python codes]. Besides, the underlying mechanisms of selected clustering models are also presented together with motivation.
+In this section, each of dimensionality reduction techniques used in this research is described, namely:  \gls{rake} keyword extraction, a series of \gls{ppa} plus \gls{pca}, and finally \gls{urf}. Besides, the underlying mechanisms of selected clustering models are also presented together with motivation.
 
 \subsection{Dimensionality reduction}
 
-[Will be added later after finalizing and wrapping up python codes]
+\subsubsection{\gls{rake}}
+
+\gls{rake} technique was applied to extract keyphrases from long text documents \citep{roseAutomaticKeywordExtraction2010}. In details, \gls{rake} splitted the text based on delimiters such as punctuations or stopwords into candidate keyphrases. For each candidate keyphrase ($w$), the score is computed for each member word then sum up based on one of the following metrics:
+
+\begin{itemize}
+    \item $freq(w)$: word frequency, in which words that occurs more in the list of candidate keyphrases will score higher.
+    \item $deg(w)$: word degree, in which words that both occurs in longer candidate keyphrases and co-occurs more in the list of candidate keyphrases will score higher.
+    \item $deg(w)/freq(w)$: the ratio of word degree to frequency, in which words that occur very often (high $freq$) but not in long candidates (low $deg$) will have less scores, and vice versa.
+\end{itemize}
+
+\subsubsection{\gls{ppa} and \gls{pca}}
+
+After extracting the desired list of words, each word was mapped with a pre-trained word embedding, then the word embedding matrix was operated on \gls{ppa} and \gls{pca} to reduce the dimension to half size but still maintain the quality of word representation, as described in \cite{raunakEffectiveDimensionalityReduction2019}. Specifically, a pipeline of \gls{ppa}, \gls{pca}, and \gls{ppa} was conducted. \gls{pca} is a statistical technique that seeks to obtain the new set of variables (components) that best reflecting the data variation. Meanwhile, \gls{ppa} is a series of vector operation done on word embeddings. Details of the pipeline are as follows:
+
+\begin{enumerate}
+    \item \gls{ppa}: Subtracting the mean from word embeddings to obtain temporary word embeddings, operating \gls{pca} on those temporary embeddings to figure out top-$D$ components ($D$ used in the original paper is 7) among $N$ original dimensions, then removing those top-$D$ components to obtain post-processed embeddings.
+    \item \gls{pca}: Operating \gls{pca} with the embeddings yielded from Step 1 to obtain the reduced embeddings with $N/2$ dimensions.
+    \item \gls{ppa}: Conducting similar post-processing operations in Step 1 with the reduced embeddings yielded from Step 2. 
+\end{enumerate}
+
+\subsubsection{\gls{urf}}
+
+The idea of feature selection is done through the feature importance computed from training a \gls{urf} classifier. In general, \gls{urf} works similarly to the traditional \gls{rf} algorithm, which learns from a large number of decision trees, showing probabilities of all outcomes depending on different conditions of features (see Figure \ref{fig:example_decision_tree} for illustration of a decision tree). However, \gls{rf} is trained on a labelled data to solve classification or regression problems, whereas \gls{urf} needs to operate without target labels. \cite{breimanManualSettingUsing2002} proposed to create a subset of new data following a random distribution from the existing dataset, label each subset target labels of "original" and "synthetic", merge both subsets into one dataset then feed into the \gls{rf} classifier. This approach is called \gls{urf}. According to \cite{breimanManualSettingUsing2002}, the existence of the synthetic data breaks the dependency of features (if any) in the original dataset. As a result, an unsupervised learning problem is turned into a binary classification. Therefore, based on the scores of feature importance obtained from the trained \gls{rf} classifier, one can decide to omit less important features. 
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{example_decision_tree.png}
+    \caption[Illustration of Decision Tree]{Illustration of Decision Tree}
+    \label{fig:example_decision_tree}
+\end{figure}
 
 \subsection{Clustering}
 
@@ -228,7 +281,7 @@ Instead of pre-defining number of clusters like k-means, \gls{hdbscan} will retu
 
 \subsubsection{LDA}
 
-\gls{lda} is a statistical modelling method proposed by \cite{blei2003latent}. 
+\gls{lda} is a statistical modelling method proposed by \cite{bleiLatentDirichletAllocation2003}. 
 \gls{lda} is selected for this research because it can handle text data directly, without the need to use numerical representation such as text embeddings like other methods discussed above (k-means, Genie, and \gls{hdbscan}). 
 
 \gls{lda} belongs to probability-based clustering method because it works based on assumption of probability distribution: each document is a distribution over topics, and
@@ -249,7 +302,11 @@ Next, to generate the multinomial probabilities of topics for each document and 
 
 The loop continues until it reaches the max iterations. Finally, one can observe that some topics consist several documents and some topics are empty, and the documents of the same topic contain similar words. Similar to \gls{lda}, \gls{gsdmm} also needs to pre-define alpha and beta. In the case of \gls{gsdmm}, alpha influences Rule 1 and beta impacts Rule 2. The authors of \gls{gsdmm} used an analogy to describe that process, namely the Movie Group Process, where topics are tables, documents are students, and words are the movies. 
 
-\section{Experiment Setup}
+\section{Experiment Setup} \label{sec:experiment_setup}
+
+\subsection{System configuration}
+
+The thesis project was hosted on a Windows 10 laptop, equiped with Intel i5 core, 512GB SSD, RAM 8GB and NVIDIA GeForce MX250. Most of the tasks were processed by R 4.0.0 and python 3.8.5. The variety of R libraries and python packages were applied, all are stated in the following subsections.
 
 \subsection{Dataset}
 
@@ -257,7 +314,7 @@ The dataset used in the thesis project can be accessed from \url{https://kaggle.
 
 With the purpose of this research, only four columns of the initial dataset are needed, namely $Title$ (job title), $JobDescription$ (job description), $JobRequirment$ (job requirements), and $RequiredQual$ (required qualifications) (see Table \ref{tbl:data_description}). Column $jobpost$ only served for purpose of missing value treatment and was omitted before carrying out the text-preprocessing steps.
 
-\begin{table}[!tbp]
+\begin{table}[!htbp]
     \caption{Ininitial dataset description\label{tbl:data_description}} 
     \begin{center}
     \begin{tabular}{llrr}
@@ -279,25 +336,25 @@ All treatments of missing values were done in R using the following packages: dp
 
 All values of "NA", "N/A", "na", "NaN", "", and default NA of R program are considered missing values. There were many missing values in the initial dataset (see Figure \ref{fig:initial_missingness}), the first treatment was made to impute missing values. By using regular expressions, the attempt was to extract text from corresponding sections of column $jobpost$ then impute into corresponding columns $Title$, $JobDescription$, $JobRequirment$, and $RequiredQual$ (see Figure \ref{fig:retrieval_missingness} of parsing result). 
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{initial_missingness.png}
-    \caption{Missingness of initial dataset. Data sources: \url{https://kaggle.com/udacity/armenian-online-job-postings}}
+    \caption[Missingness of initial dataset]{Missingness of initial dataset. Data sources: \url{https://kaggle.com/udacity/armenian-online-job-postings}}
     \label{fig:initial_missingness}
 \end{figure}
 
 The next treatment was omitting 7 rows that have missing values of all 4 columns and 2 rows with  missing values of 3 columns because those rows could not be used in clustering. The remain dataset consists of 18992 rows, where all missing values were imputed with the word "Unprovided" to reflect the reality that job recruiters indeed did not provide information of corresponding sections in the job posts.
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{retrieval_missingness.png}
-    \caption{Missingness of dataset after extracting and parsing text from column $jobpost$
+    \caption[Missingness of dataset after parsing text from $jobpost$]{Missingness of dataset after extracting and parsing text from column $jobpost$
     \label{fig:retrieval_missingness}}
 \end{figure}
 
 The final dataset has one more column $job\_id$, which is the row number in the original dataset, for later use of mapping job titles and skill sets. The remain columns were also renamed for convenience and consistency in later usage (see Table \ref{tbl:final_data_description}).
 
-\begin{table}[!tbp]
+\begin{table}[!htbp]
     \caption{Final dataset description\label{tbl:final_data_description}} 
     \begin{center}
     \begin{tabular}{llrrr}
@@ -319,13 +376,124 @@ All the text pre-processing tasks were done by python, using the following packa
 
 For job titles, the text in column $job\_title$ of the dataset was pre-processed following this pipeline: lower casing, URL removal, removal of special characters (including punctuations, numbers, and line break characters), word tokenizing, removal of English stopwords, and lemmatizing. The job title subset contains only $job\_id$, original $job\_title$, and pre-processed $job\_title$.
 
-For skill sets, a different pre-process was applied to three columns $job\_description$, $job\_requirement$, and $job\_qualification$: lower casing, URL removal, replacing all special characters (including punctuations, numbers, and line break characters) with character "|", extracting top 10 key phrases (using Rake algorithm), removal of English stopwords, removal of character "|", word tokenizing, and lemmatizing. Afterward, the dataset was reshaped to long format such that one row only consists one skill per column. The skill subset contains only $job\_id$, $skill\_id$ (row number per $job\_id$) and pre-processed columns $job\_description$, $job\_requirement$, and $job\_qualification$.
+For skill sets, a different pre-process was applied to three columns $job\_description$, $job\_requirement$, and $job\_qualification$: lower casing, URL removal, replacing all special characters (including punctuations, numbers, and line break characters) with character "|", extracting top 10 key phrases with length from 1 to 5 words per phrase (using \gls{rake} algorithm), removal of English stopwords, removal of character "|", word tokenizing, and lemmatizing. Afterward, the dataset was reshaped to long format such that one row only consists one skill phrase. The skill subset contains only $job\_id$, $skill\_id$ (row number per $job\_id$), $column\_type$ bearing one of the following values "job\_description", "job\_requirement", and "job\_qualification", the original $skill$ before lemmatizing (serving for later use of visualization), and $skill\_lemma$ containing the lemmatized skill phrases (serving for later use of mapping to word embeddings).
 
-\subsection{Feature selection and feature extraction}
+\subsection{Text embeddings}
 
+For \gls{lda} and \gls{gsdmm}, there is no need to further process the text because those algorithms operate directly with text data. Nevertheless, k-means, Genie, and \gls{hdbscan} only use numeric data as input. Thus, it was required to convert the pre-processed text data to text embeddings. In order to make effective use of words' semantic properties, this research applied the pre-trained word embeddings, namely $en\_core\_web\_lg$, available to download through the python package $spaCy$. The original loaded word embeddings have 685,000 keys and 685,000 unique vectors with length of 300 dimensions. 
 
-\subsection{Implementation and evaluation}
+The embeddings for job titles, which will be called title embeddings from now on, were generated by taking average of all L2 normalized word embeddings per each job title. Thus, the final title embeddings have the size of (18992, 300). 
 
+Regarding the embeddings for skill sets, which will be called skill embeddings, due to the large size (257450 phrases), a pipeline of \gls{ppa} (vector operations using python $numpy$) + \gls{pca} (PCA function from python package $scikit-learn$) + \gls{ppa} was done on the word embeddings mapping to each word in the skill phrases to reduce the size of the vectors to half size. The skill embeddings (in long shape, with dimensions of 257450 x 150) was created by taking average of the reduced vectors.
+
+\subsection{Column selection}
+
+Next, in order to conduct the column selection, the skill embeddings needed to transformed to wide shape. The process was done in two steps:
+
+\begin{enumerate}
+    \item Divide the long skill embeddings into 3 subsets corresponding to 3 columns in the original dataset: $job\_description$, $job\_requirement$, and $job\_qualification$.
+    \item Merging 3 subsets into one matrix of skill embeddings in wide shape based on the unique id of $job\_id$ and $skill\_id$. 
+\end{enumerate}
+
+Further, synthetic data were generated by running permutation per column then merged with the wide skill embeddings. $RandomForestClassifier$ from python package $scikit-learn$ was then applied to train on the merged matrix. The yielded feature importances are as follows:
+
+\begin{verbatim}
+    There are 225/450 (~50.0%) most important features,
+     with importance higher than 0.00219, including: 
+    - 118 (~52.44%) features from job_description, 
+    - 25 (~11.11%) features from job_requirement, 
+    - 82 (~36.44%) features from job_qualification.
+\end{verbatim}
+
+Thus, it was decided to omit the text embeddings representing $job\_requirement$ from the long embeddings. The final skill embeddings have the size of (189882, 150).
+
+\subsection{Clustering and evaluation}
+
+\subsubsection{Cluster tendency}
+
+First, it was needed to conduct the Hopkins test, to see whether the dataset have the cluster tendercy or not. The Hopkins score ($H$) from python package pyclustertend was computed to measure the cluster tendency of both title embeddings and skill embeddings \citep{ismaillachhebLachheboPyclustertendV12021}. According to the documentation of pyclustertend, if the Hopkins score is close to 0, it is useful to conduct clustering, and vice versa, if the Hopkins score is higher than 0.3, there seems to be no cluster tendency in the dataset.
+
+Table \ref{tbl:hopkins_title} and Table \ref{tbl:hopkins_skill} show the Hopkins statistics with different number of samples for testing. It can be concluded that both job titles and skill sets have cluster tendency; hence, clustering methods can be done afterward.
+
+\begin{table}[!htbp]
+    \caption{Hopkins scores computed on title embeddings\label{tbl:hopkins_title}} 
+    \begin{center}
+    \begin{tabular}{llrrl}
+    \hline\hline
+    \multicolumn{1}{c}{dataset}&\multicolumn{1}{c}{dataset\_size}&\multicolumn{1}{c}{n\_samples}&\multicolumn{1}{c}{hopkins\_score}&\multicolumn{1}{c}{test\_duration}\tabularnewline
+    \hline
+    title\_embeddings&(18992, 300)&$   50$&$0.0616$&0 days 00:00:03.524348\tabularnewline
+    title\_embeddings&(18992, 300)&$  100$&$0.0641$&0 days 00:00:04.302260\tabularnewline
+    title\_embeddings&(18992, 300)&$ 1000$&$0.0591$&0 days 00:00:17.937140\tabularnewline
+    title\_embeddings&(18992, 300)&$ 5000$&$0.0560$&0 days 00:01:19.657116\tabularnewline
+    title\_embeddings&(18992, 300)&$10000$&$0.0573$&0 days 00:02:30.997003\tabularnewline
+    \hline
+    \end{tabular}\end{center}
+    \end{table}
+
+\begin{table}[!htbp]
+    \caption{Hopkins scores computed on skill embeddings\label{tbl:hopkins_skill}} 
+    \begin{center}
+    \begin{tabular}{llrrl}
+    \hline\hline
+    \multicolumn{1}{c}{dataset}&\multicolumn{1}{c}{dataset\_size}&\multicolumn{1}{c}{n\_samples}&\multicolumn{1}{c}{hopkins\_score}&\multicolumn{1}{c}{test\_duration}\tabularnewline
+    \hline
+    skill\_halfsize\_embeddings&(189882, 150)&$   50$&$0.0146$&0 days 00:00:30.281267\tabularnewline
+    skill\_halfsize\_embeddings&(189882, 150)&$  100$&$0.0219$&0 days 00:00:33.222075\tabularnewline
+    skill\_halfsize\_embeddings&(189882, 150)&$ 1000$&$0.0223$&0 days 00:01:31.979072\tabularnewline
+    skill\_halfsize\_embeddings&(189882, 150)&$ 5000$&$0.0244$&0 days 00:06:07.380748\tabularnewline
+    skill\_halfsize\_embeddings&(189882, 150)&$10000$&$0.0241$&0 days 00:11:27.120484\tabularnewline
+    \hline
+    \end{tabular}\end{center}
+    \end{table}
+
+\subsubsection{Clustering and Hyperparameters}
+
+The clustering was done by different python packages, namely:
+
+\begin{itemize}
+    \item k-means: $KMeans$ of $scikit-learn$ \citep{pedregosaScikitlearnMachineLearning2011}.
+    \item Genie: $Genie$ of $genieclust$ \citep{gagolewskiGenieNewFast2016a}.
+    \item \gls{hdbscan}: $\gls{hdbscan}$ of $hdbscan$ \citep{mcinnesHdbscanHierarchicalDensity2017}.
+    \item \gls{lda}: $LdaModel$ of $gensim$ \citep{rehurekSoftwareFrameworkTopic2010a}.
+    \item \gls{gsdmm}: $MovieGroupProcess$ of $\gls{gsdmm}$ \citep{yinDirichletMultinomialMixture2014}.
+\end{itemize}
+
+For k-means and Genie, the only hyperparameter needed to tune is the number of clusters. A wide range from 2 to 200 were experimented to find out which was the optimal number of clusters.
+
+For \gls{hdbscan}, there is no need to pre-define the number of clusters, but $min_samples$ and $min_cluster_size$ instead. The clustering with each hyperparameter ranging from 3 to 100 were iterated to figure out the best combination of hyperparameter.
+
+For \gls{lda} and \gls{gsdmm}, besides number of clusters, $alpha$ and $beta$, ranging from 0 to 1, were needed to be tuned.
+
+\subsubsection{Evaluation metrics}
+
+The performance of clustering models were evaluated by intrinsic measures, namely: Silhouette score ($Silhouette\_score$), Calinski and Harabasz score ($CH\_score$), and Davies-Bouldin score ($DB\_score$). Silhouette score was the main metric to decide the best model. Formulas to compute each score are as following:
+
+\begin{equation} \label{eq:silhouette}
+    Silhouette\_score\:=\:\frac{a-b}{max(a,b)}
+\end{equation}
+
+where $a$ is the mean distance to the points in the nearest cluster, and $b$ is the mean intra-cluster distance to all the points.
+
+\begin{equation}
+    CH\_score\:=\:\left[\frac{\sum_{k=1}^{K} n_{k}\left\|c_{k}-c\right\|^{2}}{K-1}\right] / \left[\frac{\sum_{k=1}^{K} \sum_{i=1}^{n_{k}}\left\|d_{i}-c_{k}\right\|^{2}}{N-K}\right]
+\end{equation}
+
+where $K$ is number of clusters, $d_{i}$ is datapoint $i$, $n_{k}$ and $c_{k}$ are the number of points and centroid of the $k^{th}$ cluster respectively, $c$ is the global centroid, $N$ is the total number of data points.
+
+\begin{equation} \label{eq:db_score}
+    DB\_score\:=\:\frac{1}{n}\sum\limits_{i=1}^n max_{j\neq\:i}(\frac{\sigma_{i}+\sigma_{j}}{d(c_{i},c_{j})})
+\end{equation}
+
+where $n$ is number of clusters, $\sigma_{i}$ is average distance of all points in cluster $𝑖$ from the cluster centroid $c_{i}$, $d(c_{i},c_{j})$ is the distance between cluster centroid $c_{i}$ and $c_{j}$.
+
+Besides, for topic modelling methods \gls{lda} and \gls{gsdmm}, the average topic coherence score, given by \cite{mazaruraGammaPoissonMixtureTopic2020b}, were also computed and compared between results of the two methods. The formula of coherence score for each topic, $T$, is as following:
+
+\begin{equation}
+    coherence(T)\:=\:\sum\limits_{(v_{i},v_{j})\in T} log\frac{D(v_{i},v_{j})+\epsilon}{D(v_{j})}
+\end{equation}
+
+where $v_{i}$ is word $i$ in topic $T$, $D(v_{i},v_{j})$ is the number of documents that $v_{i}$ and $v_{j}$ co-occur, $D(v_{j})$ is the number of documents that $v_{j}$ occurs, $\epsilon$ is the smoothing parameter (which is set as 1 in the original paper).
 
 \section{Results}
 

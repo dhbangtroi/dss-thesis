@@ -1,0 +1,307 @@
+---
+title: "Untitled"
+author: "Thien Binh Hoang Dao"
+date: "11/05/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+$$
+g_j = \dfrac{(n-j)ng_{j-1} + \sum_{i=1}^{n-j+1} (|c_{i} - c_{s_{1}} - c_{s_{2}}| - |c_{i} - c_{s_{1}}| - |c_{i} - c_{s_{2}}|) - c_{s_{2}} - c_{s_{1}} + |c_{s_{1}} - c_{s_{2}}|}{(n-j-1)n}
+$$
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+library(Hmisc)
+library(DT)
+library(dplyr)
+
+
+base_path <- "E:\\THIENDHB_GOOGLEDRIVE\\MASTER TILBURG\\THESIS\\"
+df <-
+  read.csv(
+    file.path(
+      base_path,
+      'RESULTS',
+      "skill_halfsize_hopkins_test_result.csv"
+    ),
+    stringsAsFactors = F
+  )
+df$dataset <- 'skill\\_halfsize\\_embeddings'
+df <-
+  df %>% rename(
+    "n\\_samples" = n,
+    "hopkins\\_score" = hopkins_stastitics,
+    "dataset\\_size" = dataset_size,
+    "test\\_duration" = test_duration
+  )
+df["hopkins\\_score"] <- round(df["hopkins\\_score"], 4)
+datatable(df)
+
+latex_df <- Hmisc::latex(
+  df,
+  caption = 'Hopkins scores computed on skill embeddings',
+  label = 'tbl:hopkins_skill', where = "!htbp",
+  rowname = NULL,
+  file = paste(base_path, '/RESULTS/hopkins_skill', ".tex", sep =
+                 ""
+  )
+)
+
+```
+
+``` {r}
+
+df <-
+  read.csv(
+    file.path(
+      base_path,
+      'RESULTS',
+      "title_hopkins_test_result.csv"
+    ),
+    stringsAsFactors = F
+  )
+df$dataset <- 'title\\_embeddings'
+df <-
+  df %>% rename(
+    "n\\_samples" = n,
+    "hopkins\\_score" = hopkins_stastitics,
+    "dataset\\_size" = dataset_size,
+    "test\\_duration" = test_duration
+  )
+df["hopkins\\_score"] <- round(df["hopkins\\_score"], 4)
+datatable(df)
+
+latex_df <- Hmisc::latex(
+  df,
+  caption = 'Hopkins scores computed on title embeddings',
+  label = 'tbl:hopkins_title', where = "!htbp",
+  rowname = NULL,
+  file = paste(base_path, '/RESULTS/hopkins_title', ".tex", sep =
+                 ""
+  )
+)
+
+```
+
+``` {r}
+
+library(readxl)
+hyper_tuning_space <-
+  read_excel(
+    "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/hyper_tuning_space.xlsx",
+    sheet = "space"
+  )
+
+latex_df <- Hmisc::latex(
+  hyper_tuning_space,
+  caption = 'Hyperparameter search space',
+  label = 'tbl:hyper_search_space', where = "!htbp",
+  rowname = NULL,
+  file = paste(base_path, '/RESULTS/hyper_search_space', ".tex", sep =
+                 ""
+  )
+)
+
+```
+
+``` {r}
+
+optimal_title <-
+  read_excel(
+    "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/hyper_tuning_space.xlsx",
+    sheet = "optimal-title"
+  )
+
+latex_df <- Hmisc::latex(
+  optimal_title,
+  caption = 'Optimal hyperparameter for job title clustering',
+  label = 'tbl:optimal_hyper_title', where = "!htbp",
+  rowname = NULL,
+  file = paste(base_path, '/RESULTS/optimal_hyper_title', ".tex", sep =
+                 ""
+  )
+)
+
+```
+
+``` {r}
+
+optimal_skill <-
+  read_excel(
+    "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/hyper_tuning_space.xlsx",
+    sheet = "optimal-title"
+  )
+
+latex_df <- Hmisc::latex(
+  optimal_skill,
+  caption = 'Optimal hyperparameter for skill set clustering',
+  label = 'tbl:optimal_hyper_skill', where = "!htbp",
+  rowname = NULL,
+  file = paste(base_path, '/RESULTS/optimal_hyper_skill', ".tex", sep =
+                 ""
+  )
+)
+
+```
+
+``` {r}
+library(stringr)
+model_names <- c('kmeans', 'genie', 'hdbscan', 'lda', 'gsdmm')
+emb_names <- c('title', 'skill')
+
+for (m in model_names) {
+  for (i in emb_names) {
+    try ({
+      df <-
+        read.csv(file.path(
+          base_path,
+          'RESULTS',
+          m,
+          paste0(i, "_", m, "_tuning_result.csv")
+        ),
+        stringsAsFactors = F)
+      
+      colnames <- colnames(df)
+      new_colnames <- str_replace_all(colnames, '\\_', '\\\\_')
+      colnames(df) <- new_colnames
+      removed_colnames <- new_colnames[str_detect(new_colnames, 'error')]
+      kept_colnames <- new_colnames[!new_colnames %in% removed_colnames]
+      round_colnames <- c('inertia', 'silhouette', 'calinski\\_harabasz', 'davies\\_bouldin')
+      df <- df[kept_colnames]
+      for (c in round_colnames) {
+        if (c %in% colnames(df)) {
+          df[c] <- round(df[c], 4)
+        }
+      }
+      
+      latex_df <- Hmisc::latex(
+        df,
+        caption = paste0(
+          'Hyperparameter tuning results of ',
+          m,
+          ' for ',
+          i ,
+          ' clustering'
+        ),
+        label = paste0('tbl:', m, '_hyper_tuning_', i),
+        where = "!htbp",
+        rowname = NULL,
+        file = file.path(
+          base_path,
+          'RESULTS',
+          paste0(i, "_", m, "_tuning_result.tex")
+        )
+      )
+    })
+  }
+}
+
+```
+
+``` {r}
+
+df <-
+  read_excel(
+    "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/hyper_tuning_space.xlsx",
+    sheet = "comparison1-title"
+  )
+
+# df[c(2:ncol(df))] <- round(df[c(2:ncol(df))], 4)
+
+latex_df <- Hmisc::latex(
+  df,
+  caption = 'Performance comparison between title clustering models',
+  label = 'tbl:title_performance_comparison', where = "htbp",
+  # dec = 4,
+  cdec = c(0,0,4,4,4,4,4),
+  rowname = NULL,
+  file = paste(base_path, '/RESULTS/title_performance_comparison', ".tex", sep =
+                 ""
+  )
+)
+
+```
+
+``` {r}
+
+# df <-
+#   read_excel(
+#     "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/hyper_tuning_space.xlsx",
+#     sheet = "comparison2-title"
+#   )
+# 
+# df[c(2:ncol(df))] <- round(df[c(2:ncol(df))], 4)
+# 
+# latex_df <- Hmisc::latex(
+#   df,
+#   caption = 'Performance comparison between title topic models',
+#   label = 'tbl:title_topic_performance_comparison', where = "htbp",
+#   rowname = NULL,
+#   file = paste(base_path, '/RESULTS/title_topic_performance_comparison', ".tex", sep =
+#                  ""
+#   )
+# )
+
+```
+
+``` {r}
+
+df <-
+  read_excel(
+    "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/hyper_tuning_space.xlsx",
+    sheet = "comparison1-skill"
+  )
+
+# df[c(2:ncol(df))] <- round(df[c(2:ncol(df))], 4)
+
+latex_df <- Hmisc::latex(
+  df,
+  caption = 'Performance comparison between skill clustering models',
+  label = 'tbl:skill_performance_comparison', where = "htbp",
+  cdec = c(0,0,4,4,4,4,4),
+  rowname = NULL,
+  file = paste(base_path, '/RESULTS/skill_performance_comparison', ".tex", sep =
+                 ""
+  )
+)
+
+```
+
+``` {r}
+
+df <-
+  read_excel(
+    "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/hyper_tuning_space.xlsx",
+    sheet = "comparison2-skill"
+  )
+
+df[c(2:ncol(df))] <- round(df[c(2:ncol(df))], 4)
+
+latex_df <- Hmisc::latex(
+  df,
+  caption = 'Performance comparison between skill topic models',
+  label = 'tbl:skill_topic_performance_comparison', where = "htbp",
+  rowname = NULL,
+  file = paste(base_path, '/RESULTS/skill_topic_performance_comparison', ".tex", sep =
+                 ""
+  )
+)
+
+```

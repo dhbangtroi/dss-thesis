@@ -36,6 +36,8 @@ library(stringr)
 library(DT)
 library(naniar)
 library(ggplot2)
+library(Hmisc)
+library(purrr)
 
 ```
 
@@ -45,8 +47,8 @@ library(ggplot2)
 # Importing raw data
 ########################
 
-base_path <- "E:\\THIENDHB_GOOGLEDRIVE\\MASTER TILBURG\\THESIS\\DATASET\\INPUT"
-df <- read.csv(file.path(base_path, "online-job-postings.csv"), stringsAsFactors = F)
+base_path <- "E:\\THIENDHB_GOOGLEDRIVE\\MASTER TILBURG\\THESIS/"
+df <- read.csv(file.path(base_path, "DATASET/INPUT/online-job-postings.csv"), stringsAsFactors = F)
 df <- df %>% mutate(job_id = 1:n())
 refined_df <- df
 
@@ -56,17 +58,82 @@ refined_df <- df
 ########################
 # Functions
 ########################
-
-# Helper function to detect missing values
+# Helper function to detect missing values and short words
 detect_na <- function(x) {
-  is.na(x) | x == "NA" | x == "N/A" | x == "na" | x == "NaN" | x == ""
+  is.na(x) |
+    x == "na" |
+    x == "NA" |
+    x == "NaN" |
+    x == "n/a" | 
+    x == "N/A" |
+    x == ""
 }
+
+detect_na_full <- function(x) {
+  is.na(x) |
+    x == "na" |
+    x == "NA" |
+    x == "NaN" |
+    x == "n/a" | 
+    x == "N/A" |
+    x == "N /A" |
+    x == "N / A" |
+    x == "N/ A" |
+    x == "N/A." |
+    x == "H/A" |
+    x == "N/" |
+    x == ""
+}
+ 
+# # Helper function to detect short words
+# # (short word means all member words have length = 1 after splitting by punctuation)
+# detect_shortwords <- function(x) {
+#     sum(str_length(str_split(
+#       gsub('[[:punct:]]', ' ', x), ' ', simplify = T
+#     )) > 1) == 0                 
+# }
+
+```
+
+``` {r }
+
+summary(df[c('jobpost', 'Title', 'JobDescription', 'JobRequirment', 'RequiredQual')])
+
+```
+
+``` {r describe-data}
+
+df2 <- df[c('jobpost', 'Title', 'JobDescription', 'JobRequirment', 'RequiredQual')]
+df2[detect_na_full(df2)] <- NA
+
+classes <- sapply(df2, class, simplify = T)
+
+describe_tbl <- map_df(describe(df2), 
+                       ~.x$counts, 
+                       .id = "Column")
+
+describe_tbl <- describe_tbl %>% 
+  select(Column, Observations = n, "Unique values" = distinct) %>%
+  mutate("Data type" = classes) %>%
+  select(Column, "Data type", everything())
+
+datatable(describe_tbl)
+
+describe_latex <- Hmisc::latex(describe_tbl,
+                               caption = 'Ininitial dataset description',
+                               label = 'tbl:data_description',
+                               rowname = NULL,
+                               file = paste(base_path, '/RESULTS/dataset_description', ".tex", sep="")
+)
 
 ```
 
 ``` {r explore-data}
 
-datatable(df[c('jobpost', 'Title', 'JobDescription', 'JobRequirment', 'RequiredQual')], escape=T)
+# datatable(df[c('jobpost', 'Title', 'JobDescription', 'JobRequirment', 'RequiredQual')], escape=T)
+
+# Detect and convert all considered "missing" values to NA
+refined_df[detect_na(refined_df)] <- NA
 
 ```
 
@@ -76,18 +143,27 @@ datatable(df[c('jobpost', 'Title', 'JobDescription', 'JobRequirment', 'RequiredQ
 # Visualizing missing data
 ########################
 
-# Detect and convert all considered "missing" values to NA
-refined_df[detect_na(refined_df)] <- NA
-
 # Visualize missing data
 vis_miss(refined_df[c('Title', 'JobDescription', 'JobRequirment', 'RequiredQual')]) +
   labs(title = "Row-wise missingness of Online Job Posts data")
 
-try(gg_miss_upset(refined_df[c('Title', 'JobDescription', 'JobRequirment', 'RequiredQual')],
-              matrix.color = "#ff9800", main.bar.color = "#900c3f", sets.bar.color = "#009933",
-              empty.intersections = T, set_size.show = T),
-    silent = T
+try({
+  missplot <- gg_miss_upset(
+  refined_df[c('Title', 'JobDescription', 'JobRequirment', 'RequiredQual')],
+  matrix.color = "#ff9800",
+  main.bar.color = "#900c3f",
+  sets.bar.color = "#009933",
+  set_size.show = T,
+  set_size.scale_max = 4500
 )
+  print(missplot)
+  
+  ggsave(
+  filename = paste0(base_path, "RESULTS/initial_missingness.png"),
+  plot = print(missplot)
+)
+  },
+silent = T)
 
 ```
 
@@ -178,16 +254,28 @@ refined_df <- refined_df %>%
 ########################
 
 # Detect and convert all considered "missing" values to NA
-refined_df[detect_na(refined_df)] <- NA
+refined_df[detect_na_full(refined_df)] <- NA
 
 vis_miss(refined_df[c('Title', 'JobDescription', 'JobRequirment', 'RequiredQual')]) +
   labs(title = "Row-wise missingness of Retrieval Online Job Posts data")
 
-try(gg_miss_upset(refined_df[c('Title', 'JobDescription', 'JobRequirment', 'RequiredQual')],
-                  matrix.color = "#ff9800", main.bar.color = "#900c3f", sets.bar.color = "#009933",
-                  empty.intersections = T, set_size.show = T),
-    silent = T
+try({
+  missplot <- gg_miss_upset(
+  refined_df[c('Title', 'JobDescription', 'JobRequirment', 'RequiredQual')],
+  matrix.color = "#ff9800",
+  main.bar.color = "#900c3f",
+  sets.bar.color = "#009933",
+  set_size.show = T,
+  set_size.scale_max = 4500
 )
+  print(missplot)
+  
+  ggsave(
+  filename = paste0(base_path, "RESULTS/retrieval_missingness.png"),
+  plot = print(missplot)
+)
+  },
+silent = T)
 
 ```
 
@@ -224,9 +312,35 @@ new_df<- new_df %>%
 
 ```
 
+``` {r}
+
+describe_df <- map_df(describe(new_df %>% mutate(job_id = as.character(job_id))), 
+                      ~.x$counts, 
+                      .id = "Column")
+
+imputed <- sapply(new_df, function(x) {sum(x == 'Unprovided')}, simplify = T)
+
+old_columns <- c('row number', 'Title', 'JobDescription', 'JobRequirment', 'RequiredQual')
+
+describe_final_df <- describe_df %>% select(Column, Observations = n, "Unique values" = distinct) %>%
+  mutate("Imputed values" = imputed,
+         "Old column name" = old_columns) %>%
+  select(Column, "Old column name", everything())
+
+datatable(describe_final_df)
+
+latex_df <- Hmisc::latex(describe_final_df,
+                               caption = 'Final dataset description',
+                               label = 'tbl:final_data_description',
+                               rowname = NULL,
+                               file = paste(base_path, 'RESULTS/final_data_description', ".tex", sep="")
+)
+
+```
+
 ``` {r re-investigate-data}
 
-datatable(new_df, escape=T)
+# datatable(new_df, escape=T)
 
 ```
 
@@ -254,6 +368,6 @@ try(
 # Export final output to CSV
 ########################
 
-write.csv(new_df, file.path(base_path, "refined_jobpost_data.csv"), row.names = F)
+write.csv(new_df, file.path(base_path, "DATASET/INPUT/refined_jobpost_data.csv"), row.names = F)
 
 ```

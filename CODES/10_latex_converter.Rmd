@@ -179,17 +179,42 @@ for (m in model_names) {
         stringsAsFactors = F)
       
       colnames <- colnames(df)
-      new_colnames <- str_replace_all(colnames, '\\_', '\\\\_')
+      new_colnames <- str_replace_all(colnames, '\\_', ' \\\\_')
       colnames(df) <- new_colnames
-      removed_colnames <- new_colnames[str_detect(new_colnames, 'error')]
-      kept_colnames <- new_colnames[!new_colnames %in% removed_colnames]
-      round_colnames <- c('inertia', 'silhouette', 'calinski\\_harabasz', 'davies\\_bouldin')
+      removed_colnames <-
+        new_colnames[str_detect(new_colnames, 'error')]
+      removed_colnames <- c('duration', 'silhouette \\_corr', removed_colnames)
+      kept_colnames <-
+        new_colnames[!new_colnames %in% removed_colnames]
+      round_colnames <-
+        c(
+          'inertia',
+          'silhouette',
+          'calinski \\_harabasz',
+          'davies \\_bouldin',
+          'coherence \\_umass',
+          'coherence \\_cv',
+          'perplexity'
+        )
       df <- df[kept_colnames]
       for (c in round_colnames) {
         if (c %in% colnames(df)) {
           df[c] <- round(df[c], 4)
         }
       }
+      
+      # rows <- nrow(df)
+      # colnames_length <- str_length(final_colnames)
+      # names_sum <- sum(colnames_length)
+      # col_ratios <- colnames_length / names_sum
+      col_length <- sapply(df, function(x) max(nchar(x), na.rm = T), simplify=T)
+      char_sum <- sum(col_length)
+      col_ratios <- col_length / char_sum
+      # col_ratio1 <- paste0(">{\\RaggedLeft\\hspace{0pt}}m{", col_ratios[1], "\\linewidth}")
+      
+      # cgroup_adjustment <- paste0("{>{\\Centering\\hspace{0pt}}m{", col_ratios, "\\linewidth}}")
+      col_adjustment <- paste0(">{\\RaggedLeft\\hspace{0pt}}m{", col_ratios, "\\linewidth}")
+      collabel_adjustment <- paste0(">{\\Centering\\hspace{0pt}}m{", col_ratios, "\\linewidth}")
       
       latex_df <- Hmisc::latex(
         df,
@@ -203,12 +228,38 @@ for (m in model_names) {
         label = paste0('tbl:', m, '_hyper_tuning_', i),
         where = "!htbp",
         rowname = NULL,
+        col.just = col_adjustment, 
+        collabel.just = collabel_adjustment,
+        lines.page = 35, 
+        longtable = T,
+        booktabs = T,
+        # ctable = T,
+        multicol = T,
         file = file.path(
           base_path,
           'RESULTS',
           paste0(i, "_", m, "_tuning_result.tex")
         )
       )
+
+      
+      # \begin{tabular}{rrrrrr}
+      # \end{tabular}\end{center}
+      
+      # tmp <- readLines(file.path(
+      #     base_path,
+      #     'RESULTS',
+      #     paste0(i, "_", m, "_tuning_result.tex")
+      #   ))
+      # start_row <- tmp[grepl("\\\\begin\\{tabular\\}", tmp)]
+      # tmp[grepl("\\\\begin\\{tabular\\}", tmp)] <- paste("\\begin{adjustbox}{width=\\linewidth}", start_row[1])
+      # tmp[grepl("\\\\end\\{tabular\\}\\\\end\\{center\\}", tmp)] <- "\\end{tabular}\\end{adjustbox}\\end{center}"
+      # writeLines(tmp, file.path(
+      #     base_path,
+      #     'RESULTS',
+      #     paste0(i, "_", m, "_tuning_result.tex")
+      #   ))
+      
     })
   }
 }
@@ -300,6 +351,158 @@ latex_df <- Hmisc::latex(
   label = 'tbl:skill_topic_performance_comparison', where = "htbp",
   rowname = NULL,
   file = paste(base_path, '/RESULTS/skill_topic_performance_comparison', ".tex", sep =
+                 ""
+  )
+)
+
+```
+
+``` {r}
+
+library(Hmisc)
+library(readxl)
+
+df <-
+  read_excel(
+    "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/lda_topic_demonstration.xlsx",
+    sheet = "lda-demo"
+  )
+
+# df[c(2:ncol(df))] <- round(df[c(2:ncol(df))], 4)
+
+latex_df <- Hmisc::latex(
+  df,
+  caption = 'Examples of LDA topic modelling',
+  label = 'tbl:lda_demo_example', where = "htbp",
+  rowname = NULL,
+  file = paste(base_path, '/RESULTS/lda_demo_example', ".tex", sep =
+                 ""
+  )
+)
+
+```
+
+
+``` {r}
+
+library(Hmisc)
+library(readxl)
+
+df <-
+  read_excel(
+    "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/lda_topic_demonstration.xlsx",
+    sheet = "lda-topic-keywords"
+  )
+
+# df[c(2:ncol(df))] <- round(df[c(2:ncol(df))], 4)
+
+latex_df <- Hmisc::latex(
+  df,
+  caption = 'Topic keywords of LDA clustering for job titles',
+  label = 'tbl:title_lda_topic_keywords', where = "ht!",
+  rowname = NULL,
+  file = paste(base_path, '/RESULTS/title_lda_topic_keywords', ".tex", sep =
+                 ""
+  )
+)
+
+```
+
+``` {r}
+
+library(Hmisc)
+library(readxl)
+
+indices <- c(1, 2, 3)
+model <- c('kmeans', 'genie', 'hdbscan',)
+model_names <- c('k-means', 'Genie', 'HDBSCAN')
+
+for (i in indices) {
+  df <-
+    read_excel(
+      "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/topic_demonstration.xlsx",
+      sheet = paste0("title-", model[i], "-topwords")
+    )
+  
+  # df[c(2:ncol(df))] <- round(df[c(2:ncol(df))], 4)
+  
+  latex_df <- Hmisc::latex(
+    df,
+    caption = paste0('Topic keywords of ', model_names[i], ' clustering for job titles'),
+    label = paste0('tbl:title_', model[i], '_topwords'), where = "ht!",
+    rowname = NULL,
+    file = paste(base_path, paste0('/RESULTS/title_', model[i], '_topwords'), ".tex", sep =
+                   ""
+    )
+  )
+}
+
+```
+
+``` {r}
+
+library(stringr)
+library(readxl)
+
+model_names <- c('kmeans', 'genie', 'hdbscan', 'lda', 'gsdmm')
+emb_names <- c('title', 'skill')
+
+for (m in model_names) {
+  for (i in emb_names) {
+    try ({
+      df <-
+        read_excel(
+          "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/topic_demonstration.xlsx",
+          sheet = paste0(i, "-", m, "-topwords")
+        )
+      
+      col_length <- sapply(df, function(x) max(nchar(x), na.rm = T), simplify=T)
+      char_sum <- sum(col_length)
+      col_ratios <- col_length / char_sum
+      # col_ratio1 <- paste0(">{\\RaggedLeft\\hspace{0pt}}m{", col_ratios[1], "\\linewidth}")
+      
+      # cgroup_adjustment <- paste0("{>{\\Centering\\hspace{0pt}}m{", col_ratios, "\\linewidth}}")
+      col_adjustment <- paste0(">{\\RaggedLeft\\hspace{0pt}}m{", col_ratios, "\\linewidth}")
+      collabel_adjustment <- paste0(">{\\Centering\\hspace{0pt}}m{", col_ratios, "\\linewidth}")
+      
+      latex_df <- Hmisc::latex(
+        df,
+        caption = paste0('Topic keywords of ', m, ' clustering for job ', i, 's'),
+        label = paste0('tbl:', i ,'_', m, '_topwords'), where = "ht!",
+        col.just = col_adjustment,
+        collabel.just = collabel_adjustment,
+        multicol= T,
+        longtable = T,
+        booktabs = T,
+        rowname = NULL,
+        lines.page = 35, 
+        file = paste(base_path, paste0('/RESULTS/', i ,'_', m, '_topwords'), ".tex", sep =
+                       ""
+        ))
+    })
+  }
+}
+
+
+```
+
+``` {r}
+
+library(Hmisc)
+library(readxl)
+
+df <-
+  read_excel(
+    "E:/THIENDHB_GOOGLEDRIVE/MASTER TILBURG/THESIS/RESULTS/topic_demonstration.xlsx",
+    sheet = "urf_feature_ranking"
+  )
+
+latex_df <- Hmisc::latex(
+  df,
+  caption = '\\gls{urf} feature importance ranking',
+  label = 'fig:urf_feature_importance', where = "ht!",
+  rowname = NULL,
+  file = paste(base_path, '/RESULTS/urf_feature_ranking', ".tex", sep =
                  ""
   )
 )
